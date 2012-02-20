@@ -11,6 +11,20 @@ describe('Friends', function() {
       mock.expects('get_name')
       friends.get_names()
       mock.verify()
+
+      // or
+
+      // var sinon   = require('sinon')
+      // var Friends = require('../lib/friends')['Friends']
+      // var Friend  = require('../lib/friend')['Friend']
+      // var friend  = new Friend('Chandler')
+      // var friends = new Friends(friend)
+
+      // sinon.spy(friend, 'get_name')
+
+      // friends.get_names()
+
+      // friend.get_name.called.should.be.true
     })
 
     it('returns the names of the friends', function() {
