@@ -9,6 +9,12 @@ module.exports = function() {
     callback()
   })
 
+  this.Given(/^the following friend exists: "([^"]*)"$/, function(name, callback) {
+    var Friend = this.Friend
+    this.friend = new Friend(name)
+    callback()
+  })
+
   this.When(/^I create friend with name "([^"]*)"$/, function(name, callback) {
     var Friend = this.Friend
     this.friend = new Friend(name)
@@ -18,6 +24,11 @@ module.exports = function() {
   this.When(/^I create a friends collection$/, function(callback) {
     var Friends = this.Friends
     this.friends = new Friends(this.friend_1, this.friend_2)
+    callback()
+  })
+
+  this.When(/^I change the friend's name to "([^"]*)"$/, function(name, callback) {
+    this.friend.change_name('Ross')
     callback()
   })
 
