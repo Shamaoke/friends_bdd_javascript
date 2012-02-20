@@ -1,0 +1,1 @@
+Feature: Changing friends' names
