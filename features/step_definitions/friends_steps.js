@@ -32,6 +32,11 @@ module.exports = function() {
     callback()
   })
 
+  this.When(/^I change the name "([^"]*)" to "([^"]*)"$/, function(name_before, name_after, callback) {
+    this.friends.find_by_name(name_before).change_name(name_after)
+    callback()
+  })
+
   this.Then(/^the friend should have name "([^"]*)"$/, function(name, callback) {
     this.friend.get_name().should.eql(name)
     callback()
@@ -39,6 +44,11 @@ module.exports = function() {
 
   this.Then(/^the collection should contain "([^"]*)"$/, function(name, callback) {
     this.friends.get_names().should.include(name)
+    callback()
+  })
+
+  this.Then(/^the collection should not contain "([^"]*)"$/, function(name, callback) {
+    this.friends.get_names().should.not.include(name)
     callback()
   })
 }
